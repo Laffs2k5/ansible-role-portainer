@@ -6,6 +6,7 @@
     return_content: true
     headers:
       Authorization: Bearer {{ (auth_token.content|from_json).jwt }}
+    validate_certs: "{{ endpoints_validate_certs | default('no') }}"
   register: portainer_known_endpoints_raw
 
 - name: Save endpoints as fact

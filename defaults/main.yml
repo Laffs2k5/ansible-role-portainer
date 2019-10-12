@@ -10,6 +10,7 @@ container_network:
 container_restart_policy: always
 container_recreate: false
 auth_method: 1
+#endpoints_validate_certs: yes
 
 # Portainer version
 version: latest
