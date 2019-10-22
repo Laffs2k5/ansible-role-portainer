@@ -10,6 +10,7 @@
     restart_policy: "{{ container_restart_policy }}"
     links: "{{ container_links | default(omit) }}"
     networks: "{{ container_network | default(omit, True) }}"
+    purge_networks: "{{ container_network | default(False) | ternary('yes', 'no') }}" # Remove the container from ALL networks not included in networks parameter. Any default networks such as bridge, if not found in networks, will be removed as well.
     networks_cli_compatible: no # avoid ansible 2.12. Deprecation warning
     published_ports: "{{ container_ports | default(omit, True) }}"
     volumes:
